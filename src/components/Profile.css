@@ -1,0 +1,8 @@
+.content{
+    background-color: khaki;
+    grid-area: c;
+}
+
+.content img{
+    width: 700px;
+}
