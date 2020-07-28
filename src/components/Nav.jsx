@@ -1,4 +1,5 @@
 import React from 'react';
+//cn == classNav. Подключение к модулю css
 import cn from './Nav.module.css';
 
 const Nav = () =>{

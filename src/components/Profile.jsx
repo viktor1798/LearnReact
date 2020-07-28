@@ -1,4 +1,5 @@
 import React from 'react';
+//cp == classProfile. Подключение к модулю css
 import cp from'./Profile.module.css';
 
 
@@ -16,7 +17,7 @@ const Profile = () =>{
             <div>
               new post
             </div>
-            <div className= "posts">
+            <div className= {cp.posts}>
               <div className={cp.item}>
                 post1
               </div>
