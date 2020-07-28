@@ -1,6 +1,7 @@
 import React from 'react';
 //cp == classProfile. Подключение к модулю css
 import cmp from'./MyPosts.module.css';
+import Post from './Post/Post';
 
 
 const MyPosts = () =>{
@@ -8,19 +9,17 @@ const MyPosts = () =>{
 <div>
   my post
     <div>
-      new post
+      <textarea></textarea>
+      <button>Add post</button>
     </div>
-    <div className= {cmp.posts}>
-        <div className={cmp.item}>
-          post1
-        </div>
-        <div className={cmp.item}>
-          post2
-        </div>
+    <div className={cmp.posts}>
+      <Post/>
     </div>
+    <div className={cmp.posts}>
+      <Post/>
+    </div>  
 </div>
-      
-    );
+);
 }
 
 export default MyPosts;
