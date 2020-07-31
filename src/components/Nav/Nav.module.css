@@ -2,6 +2,13 @@
     grid-area:n ;
     background-color: greenyellow;
 }
-.item {
+.item a{
     color: rgb(105, 83, 83);
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.item a.active{
+    color: gold;
 }
