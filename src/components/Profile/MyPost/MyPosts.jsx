@@ -1,25 +1,23 @@
 import React from 'react';
 //cp == classProfile. Подключение к модулю css
-import cmp from'./MyPosts.module.css';
+import cmp from './MyPosts.module.css';
 import Post from './Post/Post';
 
 
-const MyPosts = () =>{
-    return(
-<div>
-  my post
+const MyPosts = () => {
+  return (
     <div>
-      <textarea></textarea>
-      <button>Add post</button>
+      my post
+      <div>
+        <textarea></textarea>
+        <button>Add post</button>
+      </div>
+      <div className={cmp.posts}>
+        <Post message = 'test props' />
+        <Post message ='double test'/>
+      </div>
     </div>
-    <div className={cmp.posts}>
-      <Post/>
-    </div>
-    <div className={cmp.posts}>
-      <Post/>
-    </div>  
-</div>
-);
+  );
 }
 
 export default MyPosts;

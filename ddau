@@ -1,0 +1,65 @@
+[33mcommit e464147a4935d97b591c34228841544a228c4816[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 22:26:41 2020 +0300
+
+    finaly improvement of structure (MyPosts,Post)
+
+[33mcommit 04eb20af0dd2d66caaa69ad2143cec9095c0d0ee[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 22:16:53 2020 +0300
+
+    improvement of structure (MyPosts,Post)
+
+[33mcommit 0f0a8aab5d68bef80d9bf9d2a4090cdf4ae42b2a[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 21:42:57 2020 +0300
+
+    improvement of structure (MyPosts,Profile)
+
+[33mcommit c5fa8d0752df2214e01571756b40c6350602dc71[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 20:48:09 2020 +0300
+
+    improvement of structure
+
+[33mcommit 2f2fa79eaf537e9228a9dd491e8935d2522f6a69[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 17:57:13 2020 +0300
+
+    End editing css file in module cssad
+
+[33mcommit 93d4f1ee026f9d4bb067d114810c398bbbeba1d4[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 17:38:56 2020 +0300
+
+    edit profile in module.css
+
+[33mcommit c1c095ff8cb360131cd7245ed689c7434fdd0e32[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 17:31:56 2020 +0300
+
+    editing in module.css
+
+[33mcommit 52a3415797822c97721424df846545cf86e2b11c[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 16:56:50 2020 +0300
+
+    Css style for individual modules
+
+[33mcommit 0a9fb2238524d7b6cd4a7815ed47d3441bb25719[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 16:48:26 2020 +0300
+
+    add new css file
+
+[33mcommit bc440134cc979745db9635cdda245edf175e9a7f[m
+Author: Viktor Semashka <viktor.semashka.18@gmail.com>
+Date:   Tue Jul 28 16:03:39 2020 +0300
+
+    add learn
+
+[33mcommit 2fa8467cfa3518d362f0344a71e8d76159b4aacc[m
+Author: viktor1798 <43679624+viktor1798@users.noreply.github.com>
+Date:   Tue Jul 28 15:47:37 2020 +0300
+
+    Initial commit
