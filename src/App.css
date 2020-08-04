@@ -9,3 +9,7 @@
     grid-template-rows: 100px 1fr;
     grid-template-columns: 2fr 10fr ;
 }
+.app-wrapper-content{
+    background-color: khaki;
+    grid-area: c;
+}
