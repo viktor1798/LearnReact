@@ -11,18 +11,21 @@ import Setting from './components/Setting/Setting';
 import News from './components/News/News';
 
 
-const App = () => {
+
+const App = (props) => {
+ 
   return (
+    
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Nav />
         <div className="app-wrapper-content">
-          <Route path="/Profile" component={Profile} />
-          <Route path="/Dialogs" component={Dialogs} />
-          <Route path='/Music' component={Music}/>
-          <Route path='/Setting' component={Setting}/>
-          <Route path='/News' component={News}/>
+          <Route path="/Profile" render = {()=> <Profile postDate={props.postDate}/>} />
+          <Route path="/Dialogs" render = {()=> <Dialogs  />}/>
+          <Route path='/Music' render = {()=> <Music/>}/>
+          <Route path='/Setting' render = {()=> <Setting/>}/>
+          <Route path='/News' render = {()=> <News/>}/>
         </div>
       </div>
     </BrowserRouter>

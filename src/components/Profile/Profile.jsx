@@ -4,11 +4,13 @@ import MyPosts from './MyPost/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
-const Profile = () =>{
+const Profile = (props) =>{
+   
+      
     return(
     <div className={cpr.content}>
     <ProfileInfo/> 
-    <MyPosts/>
+    <MyPosts postDate={props.postDate}/>
     </div>
     );
 }
