@@ -1,16 +1,11 @@
 import React from 'react';
 import cd from './Dialogs.module.css'
 import DialogsItem from './Dialog/DialogsItem';
+import MassegeItem from './Dialog/Massege/MassegeItem';
 
 
 
-const MassegeItem =(props) =>{
-    return(
-        <div className={cd.massege_item}>
-            {props.massege}
-        </div>
-    )
-}
+
 
 const Dialogs = () => {
     return (
