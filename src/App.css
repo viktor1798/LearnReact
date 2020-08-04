@@ -10,6 +10,6 @@
     grid-template-columns: 2fr 10fr ;
 }
 .app-wrapper-content{
-    background-color: khaki;
+    background-color:deepskyblue;
     grid-area: c;
 }
