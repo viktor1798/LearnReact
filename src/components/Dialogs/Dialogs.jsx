@@ -12,28 +12,23 @@ let dialogDate = [
     { name: 'Andrey', id: 6 },
 ]
 let massegeDate = [
-    {massege :'Hi'},
-    {massege :'How are you?'},
-    {massege :'Good nigth'}
+    { massege: 'Hi' },
+    { massege: 'How are you?' },
+    { massege: 'Good nigth' }
 ]
 
+let dialogElement = dialogDate.map((dd) => <DialogsItem name={dd.name} id={dd.id} />)
+let massegeElement = massegeDate.map((md) => <MassegeItem massege={md.massege} />)
 
 
 const Dialogs = () => {
     return (
         <div className={cd.dialog}>
             <div className={cd.dialog_item}>
-                <DialogsItem name={dialogDate[0].name} id={dialogDate[0].id} />
-                <DialogsItem name={dialogDate[1].name} id={dialogDate[1].id} />
-                <DialogsItem name={dialogDate[2].name} id={dialogDate[2].id} />
-                <DialogsItem name={dialogDate[3].name} id={dialogDate[3].id} />
-                <DialogsItem name={dialogDate[4].name} id={dialogDate[4].id} />
-                <DialogsItem name={dialogDate[5].name} id={dialogDate[5].id} />
+                {dialogElement}
             </div>
             <div className={cd.messages}>
-                <MassegeItem massege={massegeDate[0].massege} />
-                <MassegeItem massege={massegeDate[1].massege} />
-                <MassegeItem massege={massegeDate[2].massege} />
+                {massegeElement}
             </div>
         </div>
     )

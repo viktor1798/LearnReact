@@ -2,10 +2,13 @@ import React from 'react';
 //cp == classProfile. Подключение к модулю css
 import cmp from './MyPosts.module.css';
 import Post from './Post/Post';
+
 let postDate = [
   {message: 'Hello', likeCount:'10' },
   {message: 'I tebye Hello', likeCount:'7' }
 ]
+
+let postElement = postDate.map((pd)=> <Post message={pd.message} likeCount = {pd.likeCount} />)
 
 const MyPosts = () => {
   return (
@@ -20,8 +23,7 @@ const MyPosts = () => {
         </div>
       </div>
       <div className={cmp.posts}>
-        <Post message={postDate[0].message} likeCount = {postDate[0].likeCount} />
-        <Post message={postDate[1].message} likeCount ={postDate[1].likeCount} />
+        {postElement}
       </div>
     </div>
   );
