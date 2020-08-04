@@ -1,8 +1,14 @@
+.posts{
+    margin-top: 15px;
+    
+}
 .item{
-    color: rgb(80, 162, 255);
+    color: rgb(97, 63, 48);
+
 }
 
 .item img{
     width: 30px;
     border-radius: 10px;
+    margin: 5px;
 }
