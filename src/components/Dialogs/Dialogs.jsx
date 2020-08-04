@@ -1,35 +1,32 @@
 import React from 'react';
 import cd from './Dialogs.module.css'
-import { NavLink } from 'react-router-dom';
+import DialogsItem from './Dialog/DialogsItem';
 
+
+
+const MassegeItem =(props) =>{
+    return(
+        <div className={cd.massege_item}>
+            {props.massege}
+        </div>
+    )
+}
 
 const Dialogs = () => {
     return (
 <div className={cd.dialog}>
     <div className={cd.dialog_item}>
-        <div className={cd.item}>
-        <NavLink to='/dialogs/1'> Kolya </NavLink>
-        </div>
-        <div className={cd.item}>
-          <NavLink to='/dialogs/2'>  Sveta </NavLink>
-        </div>
-        <div className={cd.item}>
-        <NavLink to='/dialogs/3'> Igor' </NavLink>
-        </div>
-        <div className={cd.item}>
-        <NavLink to='/dialogs/4'> Sasha </NavLink>
-        </div>
+        <DialogsItem name = 'Kolya' id ='1'/>
+        <DialogsItem name = 'Alina' id ='2'/>
+        <DialogsItem name = 'Viktor' id ='3'/>
+        <DialogsItem name = 'Sasha' id ='4'/>
+        <DialogsItem name = 'Kate' id ='5'/>
+        <DialogsItem name = 'Andrey' id ='6'/>
     </div>
     <div className={cd.messages}>
-        <div className={cd.massege_item}>
-            Hi!
-        </div>
-        <div className={cd.massege_item}>
-            How are you?
-        </div>
-        <div className={cd.massege_item}>
-            Good nigth
-        </div>
+        <MassegeItem massege='Hi'/>
+        <MassegeItem massege='How are you?'/>
+        <MassegeItem massege='Good nigth'/>
     </div>
 </div>
     )

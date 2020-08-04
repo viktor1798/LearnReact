@@ -1,0 +1,8 @@
+.item a{
+    color: rgb(105, 83, 83);
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.item a.active{  
+    color: gold;
+}
