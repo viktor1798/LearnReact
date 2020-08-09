@@ -8,8 +8,8 @@ const Dialogs = (props) => {
    
    
     
-    let dialogElement = props.dialogDate.map((dd)=> <DialogsItem name={dd.name} id={dd.id} />)
-    let massegeElement = props.massegeDate.map((md)=><MassegeItem massege={md.massege}/>)
+    let dialogElement = props.state.dialogDate.map((dd)=> <DialogsItem name={dd.name} id={dd.id} />)
+    let massegeElement = props.state.massegeDate.map((md)=><MassegeItem massege={md.massege}/>)
 
     return (
         <div className={cd.dialog}>

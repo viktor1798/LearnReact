@@ -5,12 +5,11 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 const Profile = (props) =>{
-   
       
     return(
     <div className={cpr.content}>
     <ProfileInfo/> 
-    <MyPosts postDate={props.postDate}/>
+    <MyPosts postDate={props.state.postDate}/>
     </div>
     );
 }

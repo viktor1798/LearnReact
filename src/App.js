@@ -21,8 +21,8 @@ const App = (props) => {
         <Header />
         <Nav />
         <div className="app-wrapper-content">
-          <Route path="/Profile" render = {()=> <Profile postDate={props.state.postDate}/>} />
-          <Route path="/Dialogs" render = {()=> <Dialogs dialogDate={props.state.dialogDate} massegeDate={props.state.massegeDate} />}/>
+          <Route path="/Profile" render = {()=> <Profile state={props.state.profilePage}/>} />
+          <Route path="/Dialogs" render = {()=> <Dialogs state= {props.state.massegePage} />}/>
           <Route path='/Music' render = {()=> <Music/>}/>
           <Route path='/Setting' render = {()=> <Setting/>}/>
           <Route path='/News' render = {()=> <News/>}/>
