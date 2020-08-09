@@ -22,7 +22,7 @@ const App = (props) => {
         <Nav />
         <div className="app-wrapper-content">
           <Route path="/Profile" render = {()=> <Profile postDate={props.postDate}/>} />
-          <Route path="/Dialogs" render = {()=> <Dialogs  />}/>
+          <Route path="/Dialogs" render = {()=> <Dialogs dialogDate={props.dialogDate} massegeDate={props.massegeDate} />}/>
           <Route path='/Music' render = {()=> <Music/>}/>
           <Route path='/Setting' render = {()=> <Setting/>}/>
           <Route path='/News' render = {()=> <News/>}/>

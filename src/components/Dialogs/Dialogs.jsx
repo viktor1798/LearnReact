@@ -4,23 +4,12 @@ import DialogsItem from './Dialog/DialogsItem';
 import MassegeItem from './Dialog/Massege/MassegeItem';
 
 
-const Dialogs = () => {
-    let dialogDate = [
-        { name: 'Kolya', id: 1 },
-        { name: 'Alina', id: 2 },
-        { name: 'Viktor', id: 3 },
-        { name: 'Sasha', id: 4 },
-        { name: 'Kate', id: 5 },
-        { name: 'Andrey', id: 6 },
-    ]
-    let massegeDate = [
-        {massege :'Hi'},
-        {massege :'How are you?'},
-        {massege :'Good nigth'}
-    ]
+const Dialogs = (props) => {
+   
+   
     
-    let dialogElement = dialogDate.map((dd)=> <DialogsItem name={dd.name} id={dd.id} />)
-    let massegeElement = massegeDate.map((md)=><MassegeItem messages={md.massege}/>)
+    let dialogElement = props.dialogDate.map((dd)=> <DialogsItem name={dd.name} id={dd.id} />)
+    let massegeElement = props.massegeDate.map((md)=><MassegeItem massege={md.massege}/>)
 
     return (
         <div className={cd.dialog}>
