@@ -8,15 +8,23 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
   
   let postElement = props.postDate.map((pd)=> <Post message={pd.message} likeCount = {pd.likeCount} />)
+  let wordNewPost = React.createRef();
+
+
+  let addPost = () =>{
+    let text = wordNewPost.current.value;
+
+    alert(text);
+  }
   return (
     <div className= {cmp.posts_block}>
       <h4>my post</h4>
       <div>
         <div>
-          <textarea></textarea>
+          <textarea ref={wordNewPost}></textarea>
         </div>
         <div>
-          <button>Add post</button>
+          <button onClick={addPost}>Add post</button>
         </div>
       </div>
       <div className={cmp.posts}>
