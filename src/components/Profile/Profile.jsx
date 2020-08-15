@@ -9,7 +9,7 @@ const Profile = (props) =>{
     return(
     <div className={cpr.content}>
     <ProfileInfo/> 
-    <MyPosts postDate={props.state.postDate}/>
+    <MyPosts postDate={props.state.postDate} addPost={props.addPost}/>
     </div>
     );
 }

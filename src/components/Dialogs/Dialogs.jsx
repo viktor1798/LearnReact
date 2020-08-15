@@ -5,11 +5,11 @@ import MassegeItem from './Dialog/Massege/MassegeItem';
 
 
 const Dialogs = (props) => {
-   
-   
-    
-    let dialogElement = props.state.dialogDate.map((dd)=> <DialogsItem name={dd.name} id={dd.id} />)
-    let massegeElement = props.state.massegeDate.map((md)=><MassegeItem massege={md.massege}/>)
+
+
+
+    let dialogElement = props.state.dialogDate.map((dd) => <DialogsItem name={dd.name} id={dd.id} />)
+    let massegeElement = props.state.massegeDate.map((md) => <MassegeItem massege={md.massege} />)
 
     return (
         <div className={cd.dialog}>
@@ -18,6 +18,10 @@ const Dialogs = (props) => {
             </div>
             <div className={cd.messages}>
                 {massegeElement}
+                <div>
+                    <textarea></textarea>
+                    <button>Send Message</button>
+                </div>
             </div>
         </div>
     )

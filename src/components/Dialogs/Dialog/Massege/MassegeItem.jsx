@@ -5,6 +5,7 @@ const MassegeItem =(props) =>{
     return(
         <div className={cmi.massege_item}>
             {props.massege}
+            
         </div>
     )
 }
