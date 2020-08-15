@@ -1,4 +1,6 @@
-let State = {
+import { rerenderEntireTree } from "./render";
+
+let state = {
     profilePage: {
         postDate: [
             {id:1, message: 'Hello', likeCount: '10' },
@@ -26,19 +28,19 @@ let State = {
 
 };
 
-export let addPost = (addNewPost) =>{
-    debugger;
+export let addPost = ( addNewPost) =>{
     let newPost = {
         id:3,
         message: addNewPost,
         likeCount:1
     }
 
-    State.profilePage.postDate.push(newPost);
+    state.profilePage.postDate.push(newPost);
+    rerenderEntireTree(state);
 }
 
 
 
 
 
-export default State;
+export default state;

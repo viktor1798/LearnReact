@@ -12,9 +12,9 @@ const MyPosts = (props) => {
 
 
   let addPost = () =>{
-    debugger;
     let text = wordNewPost.current.value;
     props.addPost(text);
+    wordNewPost.current.value = '';
   }
   return (
     <div className= {cmp.posts_block}>
