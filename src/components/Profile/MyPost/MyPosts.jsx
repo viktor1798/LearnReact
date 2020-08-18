@@ -16,8 +16,7 @@ const MyPosts = (props) => {
 
 
   let addPost = () => {
-    let text = wordNewPost.current.value;
-    props.addPost(text);
+    props.addPost();
     wordNewPost.current.value = '';
   }
   let onPost = () => {

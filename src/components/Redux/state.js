@@ -30,13 +30,12 @@ let state = {
 
 };
 
-export let addPost = ( addNewPost) =>{
+export let addPost = ( ) =>{
     let newPost = {
         id:3,
-        message: addNewPost,
+        message: state.profilePage.newPostText,
         likeCount:1
-    }
-
+    };
     state.profilePage.postDate.push(newPost);
     rerenderEntireTree(state);
 }
