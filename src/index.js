@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import store from './components/Redux/state'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import state from './components/Redux/state';
-import {addPost, updateNewText, callbackToIndex} from './components/Redux/state';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
@@ -12,14 +11,14 @@ export let rerenderEntireTree= (state)=>{
 
 ReactDOM.render(
   <BrowserRouter>
-    <App state={state} addPost={addPost} updateNewText = {updateNewText}/>
-  </BrowserRouter>,
+    <App store={store.GetState()} addPost={store.addPost.bind(store)} updateNewText = {store.updateNewText.bind(store)}/>
+  </BrowserRouter>,   
   document.getElementById('root')
 );
 }
 
-callbackToIndex(rerenderEntireTree);
-rerenderEntireTree(state);
+store.subscribe(rerenderEntireTree);
+rerenderEntireTree(store.GetState());
 
 
 // If you want your app to work offline and load faster, you can change
