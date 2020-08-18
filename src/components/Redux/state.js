@@ -1,5 +1,5 @@
 let store = {
-    _state :{
+    _state: {
         profilePage: {
             postDate: [
                 { id: 1, message: 'Hello', likeCount: '10' },
@@ -34,19 +34,30 @@ let store = {
     _rerenderEntireTree() {
 
     },
-    addPost() {
-        let newPost = {
-            id: 3,
-            message: this._state.profilePage.newPostText,
-            likeCount: 1
-        };
-        this._state.profilePage.postDate.push(newPost);
-        this._rerenderEntireTree(this._state);
-    },
 
-    updateNewText(addNewWord) {
-        this._state.profilePage.newPostText = addNewWord;
-        this._rerenderEntireTree(this._state);
+
+    // addPost() {
+
+    // },
+
+    // updateNewText(addNewWord) {
+
+    // },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                likeCount: 1
+            };
+            this._state.profilePage.postDate.push(newPost);
+            this._rerenderEntireTree(this._state);
+        } else if (action.type === 'WORD-TEXT') {
+            this._state.profilePage.newPostText = action.addNewWord;
+            this._rerenderEntireTree(this._state);
+        }
+
     },
 
     // паттерн наблюдатель 

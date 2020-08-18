@@ -16,12 +16,12 @@ const MyPosts = (props) => {
 
 
   let addPost = () => {
-    props.addPost();
+    props.dispatch({type:'ADD-POST'});
     wordNewPost.current.value = '';
   }
   let onPost = () => {
     let text = wordNewPost.current.value;
-    props.updateNewText(text);
+    props.dispatch({type:'WORD-TEXT',addNewWord: text});
   }
 
   return (
