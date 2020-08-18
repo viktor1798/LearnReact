@@ -1,4 +1,7 @@
-import { rerenderEntireTree } from "./render";
+let rerenderEntireTree = ()=>{
+    
+};
+
 
 let state = {
     profilePage: {
@@ -30,7 +33,7 @@ let state = {
 
 };
 
-export let addPost = ( ) =>{
+export const addPost = ( ) =>{
     let newPost = {
         id:3,
         message: state.profilePage.newPostText,
@@ -39,13 +42,13 @@ export let addPost = ( ) =>{
     state.profilePage.postDate.push(newPost);
     rerenderEntireTree(state);
 }
-
-
-export let updateNewText = ( addNewWord) =>{
+export const updateNewText = ( addNewWord) =>{
     state.profilePage.newPostText = addNewWord;
     rerenderEntireTree(state);
 }
-
+export const callbackToIndex = (observer) =>{
+    rerenderEntireTree=observer;
+}
 
 
 
