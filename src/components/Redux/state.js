@@ -6,6 +6,8 @@ let state = {
             {id:1, message: 'Hello', likeCount: '10' },
             {id:2, message: 'I tebye Hello', likeCount: '7' }
         ]
+        ,
+        newPostText: ''
     }
     ,
     massegePage:{
@@ -36,6 +38,12 @@ export let addPost = ( addNewPost) =>{
     }
 
     state.profilePage.postDate.push(newPost);
+    rerenderEntireTree(state);
+}
+
+
+export let updateNewText = ( addNewWord) =>{
+    state.profilePage.newPostText = addNewWord;
     rerenderEntireTree(state);
 }
 
