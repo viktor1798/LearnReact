@@ -2,19 +2,24 @@ import React from 'react';
 import cd from './Dialogs.module.css'
 import DialogsItem from './Dialog/DialogsItem';
 import MassegeItem from './Dialog/Massege/MassegeItem';
+import {sendMassegeAC,onMassegeAC} from '../Redux/state';
 
 
 const Dialogs = (props) => {
+    let state= props.store.GetState().massegePage;
 
 
+    let dialogElement = state.dialogDate.map((dd) => <DialogsItem name={dd.name} id={dd.id} />)
+    let massegeElement = state.massegeDate.map((md) => <MassegeItem massege={md.massege} />)
 
-    let dialogElement = props.state.dialogDate.map((dd) => <DialogsItem name={dd.name} id={dd.id} />)
-    let massegeElement = props.state.massegeDate.map((md) => <MassegeItem massege={md.massege} />)
-
-
+    let newMassegeText = state.newMassegeText;
     let sendMassegeClick =()=>{
-
-
+        props.store.dispatch(onMassegeAC()) 
+        
+    }
+    let wordMassegeClick =(event)=>{
+        let body =event.target.value;
+        props.store.dispatch(sendMassegeAC(body)) 
     }
     return (
         <div className={cd.dialog}>
@@ -28,7 +33,7 @@ const Dialogs = (props) => {
                 <div>
 
                     <div>
-                        <textarea placeholder="Enter new message"></textarea>
+                        <textarea value={newMassegeText} placeholder="Enter new message" onChange={wordMassegeClick}></textarea>
                     </div>
                     <div>
                         <button onClick = {sendMassegeClick}>Send Message</button>

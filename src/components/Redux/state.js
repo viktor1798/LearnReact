@@ -57,11 +57,12 @@ let store = {
         } else if (action.type === WORD_TEXT_MASSEGE) {
             this._state.massegePage.newMassegeText = action.addWordMassege;
             this._rerenderEntireTree(this._state);
-        } if (action.type === ADD_POST) {
+        } if (action.type === SEND_MASSEGE) {
             let newMassege = {
                 id: 4,
                 massege: this._state.massegePage.newMassegeText
             };
+            this._state.massegePage.newMassegeText='';
             this._state.massegePage.massegeDate.push(newMassege);
             this._rerenderEntireTree(this._state);
         }
