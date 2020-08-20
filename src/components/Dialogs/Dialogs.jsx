@@ -14,12 +14,11 @@ const Dialogs = (props) => {
 
     let newMassegeText = state.newMassegeText;
     let sendMassegeClick =()=>{
-        props.store.dispatch(onMassegeAC()) 
-        
+        props.store.dispatch(sendMassegeAC()) 
     }
     let wordMassegeClick =(event)=>{
         let body =event.target.value;
-        props.store.dispatch(sendMassegeAC(body)) 
+        props.store.dispatch(onMassegeAC(body)) 
     }
     return (
         <div className={cd.dialog}>
@@ -33,7 +32,10 @@ const Dialogs = (props) => {
                 <div>
 
                     <div>
-                        <textarea value={newMassegeText} placeholder="Enter new message" onChange={wordMassegeClick}></textarea>
+                        <textarea value={newMassegeText} 
+                        placeholder="Enter new message" 
+                        onChange={wordMassegeClick}>
+                        </textarea>
                     </div>
                     <div>
                         <button onClick = {sendMassegeClick}>Send Message</button>

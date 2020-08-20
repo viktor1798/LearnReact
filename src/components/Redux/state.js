@@ -49,6 +49,7 @@ let store = {
                 message: this._state.profilePage.newPostText,
                 likeCount: 1
             };
+            this._state.profilePage.newPostText='';
             this._state.profilePage.postDate.push(newPost);
             this._rerenderEntireTree(this._state);
         } else if (action.type === WORD_TEXT) {
@@ -84,8 +85,8 @@ let store = {
 export const addPostAC = () => ({ type: ADD_POST });
 export const onPostAC = (text) => ({ type: WORD_TEXT, addNewWord: text })
 
-export const onMassegeAC = () => ({ type: SEND_MASSEGE })
-export const sendMassegeAC = (body) => ({ type: WORD_TEXT_MASSEGE, addWordMassege: body })
+export const sendMassegeAC = () => ({ type: SEND_MASSEGE })
+export const  onMassegeAC = (body) => ({ type: WORD_TEXT_MASSEGE, addWordMassege: body })
 
 
 export default store;

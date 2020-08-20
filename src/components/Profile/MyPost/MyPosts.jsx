@@ -17,8 +17,8 @@ const MyPosts = (props) => {
     props.dispatch(addPostAC());
     wordNewPost.current.value = '';
   }
-  let onPost = () => { 
-    let text = wordNewPost.current.value;
+  let onPost = (event) => { 
+    let text = event.target.value;
     props.dispatch(onPostAC(text));
   }
 
