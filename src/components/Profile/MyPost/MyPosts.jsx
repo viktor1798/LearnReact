@@ -2,11 +2,10 @@ import React from 'react';
 //cp == classProfile. Подключение к модулю css
 import cmp from './MyPosts.module.css';
 import Post from './Post/Post';
-
+import {onPostAC, addPostAC} from '../../Redux/state';
 
 
 const MyPosts = (props) => {
-
   let postElement = props.postDate.map(
     (pd) => <Post
       message={pd.message}
@@ -14,14 +13,13 @@ const MyPosts = (props) => {
   );
   let wordNewPost = React.createRef();
 
-
   let addPost = () => {
-    props.dispatch({type:'ADD-POST'});
+    props.dispatch(addPostAC());
     wordNewPost.current.value = '';
   }
-  let onPost = () => {
+  let onPost = () => { 
     let text = wordNewPost.current.value;
-    props.dispatch({type:'WORD-TEXT',addNewWord: text});
+    props.dispatch(onPostAC(text));
   }
 
   return (

@@ -34,16 +34,6 @@ let store = {
     _rerenderEntireTree() {
 
     },
-
-
-    // addPost() {
-
-    // },
-
-    // updateNewText(addNewWord) {
-
-    // },
-
     dispatch(action) {
         if (action.type === 'ADD-POST') {
             let newPost = {
@@ -65,5 +55,14 @@ let store = {
         this._rerenderEntireTree = observer;
     }
 }
+
+// Тоже самое что и 
+// export const addPostAC =()=>{
+//     return{
+//     type:'ADD-POST'
+//     }
+// };
+export const addPostAC =()=>({type:'ADD-POST'});
+export const onPostAC =(text)=>({type:'WORD-TEXT',addNewWord: text})
 
 export default store;
