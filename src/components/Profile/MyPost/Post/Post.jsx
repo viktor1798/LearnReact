@@ -8,6 +8,7 @@ const Post = (props) => {
     <div className={cp.posts}>
       <div className={cp.item}>
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Pic-vk-allaboutme-ava-2.jpg"></img>
+        {/* обьект элементов сообщений */}
         {props.message}
       </div>
       <div className={cp.posts}>

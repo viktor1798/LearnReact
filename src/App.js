@@ -15,12 +15,14 @@ import News from './components/News/News';
 const App = (props) => {
 
   return (
-
+    //Компонента BR которая позволяет делать мнгноввеный перехо, также эта страница главная, и предназначена для 
+    // компонент других страниц
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Nav />
         <div className="app-wrapper-content">
+          {/* path- делает нужный URL, render указывает на страницу по которой идет данный URL */}
           <Route path="/Profile" render={() => <Profile
             state={props.state.profilePage}
             dispatch={props.dispatch} />} />

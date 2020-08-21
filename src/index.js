@@ -11,7 +11,8 @@ export let rerenderEntireTree= (state)=>{
 
 ReactDOM.render(
   <BrowserRouter>
-    <App state={state} dispatch={store.dispatch.bind(store)} store = {store}/*updateNewText = {store.updateNewText.bind(store)}>*//>
+    {/*Отправка данных через пропсы в компоненту Арр из state.js  */}
+    <App state={state} dispatch={store.dispatch.bind(store)} store = {store}/>
   </BrowserRouter>,   
   document.getElementById('root')
 );

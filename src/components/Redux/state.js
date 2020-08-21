@@ -6,6 +6,7 @@ let WORD_TEXT_MASSEGE = 'WORD-TEXT-MASSEGE'
 
 
 let store = {
+    // набор обектов и массивов
     _state: {
         profilePage: {
             postDate: [
@@ -36,12 +37,15 @@ let store = {
 
 
     },
+    // метод вызова обьектов для передачи по пропсам 
     GetState() {
         return this._state
     },
+    //пустой метод для перересовки страницы SPA
     _rerenderEntireTree() {
 
     },
+    // метод для выполнение функции отправки сообщений и добавление постов
     dispatch(action) {
         if (action.type === ADD_POST) {
             let newPost = {
@@ -82,6 +86,8 @@ let store = {
 //     type:'ADD-POST'
 //     }
 // };
+
+// функции для принятия данных и последующих операций в методе dispatch()
 export const addPostAC = () => ({ type: ADD_POST });
 export const onPostAC = (text) => ({ type: WORD_TEXT, addNewWord: text })
 

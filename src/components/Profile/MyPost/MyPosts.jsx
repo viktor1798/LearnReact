@@ -6,17 +6,19 @@ import {onPostAC, addPostAC} from '../../Redux/state';
 
 
 const MyPosts = (props) => {
+  //преобразование массива элементов
   let postElement = props.postDate.map(
     (pd) => <Post
       message={pd.message}
       likeCount={pd.likeCount} />
   );
   let wordNewPost = React.createRef();
-
+//отправка поста
   let addPost = () => {
     props.dispatch(addPostAC());
     wordNewPost.current.value = '';
   }
+  //набор текста сообщений
   let onPost = (event) => { 
     let text = event.target.value;
     props.dispatch(onPostAC(text));
@@ -34,6 +36,7 @@ const MyPosts = (props) => {
         </div>
       </div>
       <div className={cmp.posts}>
+        {/* преобразованный массив элементов */}
         {postElement}
       </div>
     </div>
