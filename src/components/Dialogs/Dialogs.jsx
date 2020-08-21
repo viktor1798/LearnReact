@@ -6,6 +6,7 @@ import {sendMassegeAC,onMassegeAC} from '../Redux/state';
 
 
 const Dialogs = (props) => {
+    debugger;
     let state= props.store.GetState().massegePage;
 
     //преобразование массива для пуша новых данных

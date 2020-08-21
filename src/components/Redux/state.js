@@ -1,3 +1,6 @@
+import profileReduser from "./profileReduser"
+import dialogsReduser from "./dialogsReduser"
+
 let ADD_POST = 'ADD-POST'
 let WORD_TEXT = 'WORD-TEXT'
 
@@ -46,31 +49,11 @@ let store = {
 
     },
     // метод для выполнение функции отправки сообщений и добавление постов
-    dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 3,
-                message: this._state.profilePage.newPostText,
-                likeCount: 1
-            };
-            this._state.profilePage.newPostText='';
-            this._state.profilePage.postDate.push(newPost);
-            this._rerenderEntireTree(this._state);
-        } else if (action.type === WORD_TEXT) {
-            this._state.profilePage.newPostText = action.addNewWord;
-            this._rerenderEntireTree(this._state);
-        } else if (action.type === WORD_TEXT_MASSEGE) {
-            this._state.massegePage.newMassegeText = action.addWordMassege;
-            this._rerenderEntireTree(this._state);
-        } if (action.type === SEND_MASSEGE) {
-            let newMassege = {
-                id: 4,
-                massege: this._state.massegePage.newMassegeText
-            };
-            this._state.massegePage.newMassegeText='';
-            this._state.massegePage.massegeDate.push(newMassege);
-            this._rerenderEntireTree(this._state);
-        }
+     dispatch(action) {
+         //отправка данных объектов в функции Reduser
+        this._state.profilePage= profileReduser(this._state.profilePage, action);
+        this._state.massegePage = dialogsReduser(this._state.massegePage, action);
+             this._rerenderEntireTree(this._state);
 
     },
 
