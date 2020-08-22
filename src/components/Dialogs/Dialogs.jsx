@@ -6,7 +6,7 @@ import {sendMassegeAC,onMassegeAC} from '../Redux/dialogsReduser';
 
 
 const Dialogs = (props) => {
-    let state = props.store.getState().massegePage;
+    let state = props.massegePage;
 
     //преобразование массива для пуша новых данных
     let dialogElement = state.dialogDate.map((dd) => <DialogsItem name={dd.name} id={dd.id} />)
@@ -14,12 +14,12 @@ const Dialogs = (props) => {
     //отправка сообщений и дальнешее передача действий в файл state.js в метод dispatch()
     let newMassegeText = state.newMassegeText;
     let sendMassegeClick =()=>{
-        props.store.dispatch(sendMassegeAC()) 
+        props.sendMassegeAC();
     }
     //набор символов в textarae и дальнешее передача действий в файл state.js в метод dispatch()
     let wordMassegeClick =(event)=>{
         let body =event.target.value;
-        props.store.dispatch(onMassegeAC(body)) 
+        props.onMassegeAC(body)
     }
     return (
         <div className={cd.dialog}>
