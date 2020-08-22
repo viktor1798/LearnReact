@@ -2,12 +2,11 @@ import React from 'react';
 import cd from './Dialogs.module.css'
 import DialogsItem from './Dialog/DialogsItem';
 import MassegeItem from './Dialog/Massege/MassegeItem';
-import {sendMassegeAC,onMassegeAC} from '../Redux/store';
+import {sendMassegeAC,onMassegeAC} from '../Redux/dialogsReduser';
 
 
 const Dialogs = (props) => {
-    debugger;
-    let state= props.store.GetState().massegePage;
+    let state = props.store.getState().massegePage;
 
     //преобразование массива для пуша новых данных
     let dialogElement = state.dialogDate.map((dd) => <DialogsItem name={dd.name} id={dd.id} />)

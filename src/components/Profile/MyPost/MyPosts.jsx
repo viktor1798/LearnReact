@@ -2,12 +2,14 @@ import React from 'react';
 //cp == classProfile. Подключение к модулю css
 import cmp from './MyPosts.module.css';
 import Post from './Post/Post';
-import {onPostAC, addPostAC} from '../../Redux/store';
+import {onPostAC, addPostAC} from '../../Redux/profileReduser';
 
 
 const MyPosts = (props) => {
+  debugger;
+  let state = props.store.getState().profilePage;
   //преобразование массива элементов
-  let postElement = props.postDate.map(
+  let postElement = state.postDate.map(
     (pd) => <Post
       message={pd.message}
       likeCount={pd.likeCount} />

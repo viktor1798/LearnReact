@@ -1,8 +1,17 @@
 let ADD_POST = 'ADD-POST'
 let WORD_TEXT = 'WORD-TEXT'
 
+let initialState = {
+    postDate: [
+        { id: 1, message: 'Hello', likeCount: '10' },
+        { id: 2, message: 'I tebye Hello', likeCount: '7' }
+    ]
+    ,
+    newPostText: ''
+}
+
 // функция добавление постов
-const profileReduser = (state, action) => {
+const profileReduser = (state=initialState, action) => {
     // if (action.type === ADD_POST) {
     //     let newPost = {
     //         id: 3,
@@ -38,6 +47,10 @@ const profileReduser = (state, action) => {
 
 
 }
+// функции для принятия данных и последующих операций в методе dispatch()
+
+export const addPostAC = () => ({ type: ADD_POST });
+export const onPostAC = (text) => ({ type: WORD_TEXT, addNewWord: text })
 
 export default profileReduser;
 

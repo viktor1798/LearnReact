@@ -13,7 +13,7 @@ import News from './components/News/News';
 
 
 const App = (props) => {
-
+  debugger;
   return (
     //Компонента BR которая позволяет делать мнгноввеный перехо, также эта страница главная, и предназначена для 
     // компонент других страниц
@@ -24,9 +24,9 @@ const App = (props) => {
         <div className="app-wrapper-content">
           {/* path- делает нужный URL, render указывает на страницу по которой идет данный URL */}
           <Route path="/Profile" render={() => <Profile
-            state={props.state.profilePage}
+            store = {props.store}
             dispatch={props.dispatch} />} />
-          <Route path="/Dialogs" render={() => <Dialogs store = {props.store}  />} />
+          <Route path="/Dialogs" render={() => <Dialogs store = {props.store}/>} />
           <Route path='/Music' render={() => <Music />} />
           <Route path='/Setting' render={() => <Setting />} />
           <Route path='/News' render={() => <News />} />
