@@ -2,7 +2,7 @@ import React from 'react';
 //cp == classProfile. Подключение к модулю css
 import cmp from './MyPosts.module.css';
 import Post from './Post/Post';
-import {onPostAC, addPostAC} from '../../Redux/state';
+import {onPostAC, addPostAC} from '../../Redux/store';
 
 
 const MyPosts = (props) => {

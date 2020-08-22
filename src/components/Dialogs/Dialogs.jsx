@@ -2,7 +2,7 @@ import React from 'react';
 import cd from './Dialogs.module.css'
 import DialogsItem from './Dialog/DialogsItem';
 import MassegeItem from './Dialog/Massege/MassegeItem';
-import {sendMassegeAC,onMassegeAC} from '../Redux/state';
+import {sendMassegeAC,onMassegeAC} from '../Redux/store';
 
 
 const Dialogs = (props) => {
