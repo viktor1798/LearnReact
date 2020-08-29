@@ -5,14 +5,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
+import { Provider } from './components/Redux/StoreContext';
 
 
 export let rerenderEntireTree= (state)=>{
 
 ReactDOM.render(
   <BrowserRouter>
-    {/*Отправка данных через пропсы в компоненту Арр из state.js  */}
-    <App state={state} dispatch={store.dispatch.bind(store)} store = {store}/>
+    <Provider store ={store}>
+    {/*Отправка данных чеstate={state} dispatch={store.dispatch.bind(store)} store = {store}рез пропсы в компоненту Арр из state.js  */}
+      <App />
+    </Provider>
   </BrowserRouter>,   
   document.getElementById('root')
 );

@@ -1,20 +1,32 @@
 import React from 'react';
 import {sendMassegeAC,onMassegeAC} from '../Redux/dialogsReduser';
 import Dialogs from './Dialogs';
+import StoreContext from '../Redux/StoreContext';
 
 
-const DialogsContainer = (props) => {
-    let state = props.store.getState().massegePage;
-    let sendMassegeClick =()=>{
-        props.store.dispatch(sendMassegeAC()) 
-    }
-    //набор символов в textarae и дальнешее передача действий в файл state.js в метод dispatch()
-    let wordMassegeClick =(body)=>{
-        props.store.dispatch(onMassegeAC(body)) 
-    }
-    return (
-        <Dialogs sendMassegeAC={sendMassegeClick} onMassegeAC={wordMassegeClick} massegePage={state}/>
-    )
+const DialogsContainer = () => {
+   return <StoreContext.Consumer>
+       {
+           store=>{
+            let sendMassegeClick =()=>{
+                store.dispatch(sendMassegeAC()) 
+            }
+            let wordMassegeClick =(body)=>{
+                store.dispatch(onMassegeAC(body)) 
+            }
+            return (
+                <Dialogs sendMassegeAC={sendMassegeClick} onMassegeAC={wordMassegeClick} massegePage={store.getState().massegePage}/>
+            )
+           }
+       }
+   </StoreContext.Consumer> 
 }
 
 export default DialogsContainer;
+
+
+
+   
+    //набор символов в textarae и дальнешее передача действий в файл state.js в метод dispatch()
+ 
+    

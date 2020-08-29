@@ -6,14 +6,8 @@ import Post from './Post/Post';
 
 
 const MyPosts = (props) => {
-  debugger;
-  let state = props.profilePage;
   //преобразование массива элементов
-  let postElement = state.postDate.map(
-    (pd) => <Post
-      message={pd.message}
-      likeCount={pd.likeCount} />
-  );
+  let postElement =props.postDate.map((pd) => <Post message={pd.message} likeCount={pd.likeCount} />);
   let wordNewPost = React.createRef();
 //отправка поста
   let addPost = () => {

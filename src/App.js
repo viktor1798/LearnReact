@@ -24,10 +24,8 @@ const App = (props) => {
         <Nav />
         <div className="app-wrapper-content">
           {/* path- делает нужный URL, render указывает на страницу по которой идет данный URL */}
-          <Route path="/Profile" render={() => <Profile
-            store = {props.store}
-            dispatch={props.dispatch} />} />
-          <Route path="/Dialogs" render={() => <DialogsContainer store = {props.store}/>} />
+          <Route path="/Profile" render={() => <Profile />} />
+          <Route path="/Dialogs" render={() => <DialogsContainer />} />
           <Route path='/Music' render={() => <Music />} />
           <Route path='/Setting' render={() => <Setting />} />
           <Route path='/News' render={() => <News />} />

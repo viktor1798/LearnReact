@@ -4,12 +4,12 @@ import MyPostsContainer from './MyPost/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
-const Profile = (props) => {
+const Profile = () => {
 
     return (
         <div className={cpr.content}>
             <ProfileInfo />
-            <MyPostsContainer store = {props.store} />
+            <MyPostsContainer />
         </div>
     );
 }
