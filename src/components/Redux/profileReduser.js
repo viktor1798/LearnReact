@@ -38,9 +38,11 @@ const profileReduser = (state = initialState, action) => {
             stateCopy.newPostText = '';
             return stateCopy;
         }
-        case WORD_TEXT:
-            state.newPostText = action.addNewWord;
-            return state;
+        case WORD_TEXT:{
+            let stateCopy = {...state}
+            stateCopy.postDate = [...state.postDate] 
+            stateCopy.newPostText = action.addNewWord;
+            return stateCopy;}
         default:
             return state;
     }
