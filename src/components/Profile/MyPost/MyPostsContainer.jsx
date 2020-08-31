@@ -15,7 +15,7 @@ let mapDispatchToProps=(dispatch)=>{
   return{
     onPostAC:(text)=>{
       let action = onPostAC(text);
-      dispatch();
+      dispatch(action);
     },
     addPostAC:()=>{
       dispatch(addPostAC());

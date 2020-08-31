@@ -11,7 +11,7 @@ let initialState = {
 }
 
 // функция добавление постов
-const profileReduser = (state=initialState, action) => {
+const profileReduser = (state = initialState, action) => {
     // if (action.type === ADD_POST) {
     //     let newPost = {
     //         id: 3,
@@ -26,21 +26,21 @@ const profileReduser = (state=initialState, action) => {
     //     return state;
     // } 
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
                 id: 3,
                 message: state.newPostText,
                 likeCount: 1
             };
-            state.newPostText = '';
-            state.postDate.push(newPost);
-            return state;
-
+            let stateCopy = {...state};
+            stateCopy.postDate = [...state.postDate];
+            stateCopy.postDate.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy;
+        }
         case WORD_TEXT:
             state.newPostText = action.addNewWord;
             return state;
-
-
         default:
             return state;
     }
