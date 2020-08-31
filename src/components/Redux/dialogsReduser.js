@@ -33,19 +33,24 @@ const dialogsReduser =(state=initialState, action)=>{
     //     state.newMassegeText='';
     //     state.massegeDate.push(newMassege);
     //     return state
-    // } 
+    // }
+   
     switch (action.type) {
-        case WORD_TEXT_MASSEGE:
-            state.newMassegeText = action.addWordMassege;
-            return state;
-        case SEND_MASSEGE:
-            let newMassege = {
-                id: 4,
-                massege: state.newMassegeText
-            };
-            state.newMassegeText='';
-            state.massegeDate.push(newMassege);
-            return state;
+        
+    case WORD_TEXT_MASSEGE:{
+        return {
+            ...state,
+            newMassegeText: action.addWordMassege
+        }
+    }
+        case SEND_MASSEGE:{
+            let body =state.newMassegeText;
+            return {
+            ...state,
+            newMassegeText:'', 
+            massegeDate:[...state.massegeDate,{id: 4,massege: body}]};
+            
+        }
     
         default:
             return state;

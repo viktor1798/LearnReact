@@ -26,23 +26,23 @@ const profileReduser = (state = initialState, action) => {
     //     return state;
     // } 
     switch (action.type) {
-        case ADD_POST: {
+        case ADD_POST: 
             let newPost = {
                 id: 3,
                 message: state.newPostText,
                 likeCount: 1
             };
-            let stateCopy = {...state};
-            stateCopy.postDate = [...state.postDate];
-            stateCopy.postDate.push(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
-        }
-        case WORD_TEXT:{
-            let stateCopy = {...state}
-            stateCopy.postDate = [...state.postDate] 
-            stateCopy.newPostText = action.addNewWord;
-            return stateCopy;}
+            return{
+                ...state,
+                postDate : [...state.postDate, newPost],
+                newPostText : ''
+            }
+        
+        case WORD_TEXT:
+            return{
+                ...state,
+                newPostText : action.addNewWord
+            }
         default:
             return state;
     }

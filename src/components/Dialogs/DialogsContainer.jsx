@@ -12,10 +12,10 @@ let mapStateToProps=(state)=>{
 }
 let mapDispatchToProps=(dispatch)=>{
     return{
-        onMassegeAC:()=>{
+        sendMassegeAC:()=>{
             dispatch(sendMassegeAC()) 
         },
-        sendMassegeAC:(body)=>{
+        onMassegeAC:(body)=>{
             dispatch(onMassegeAC(body)) 
         }
     }
