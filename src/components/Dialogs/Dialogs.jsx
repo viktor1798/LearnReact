@@ -6,6 +6,7 @@ import MassegeItem from './Dialog/Massege/MassegeItem';
 
 
 const Dialogs = (props) => {
+    debugger;
     let state = props.massegePage;
 
     //преобразование массива для пуша новых данных

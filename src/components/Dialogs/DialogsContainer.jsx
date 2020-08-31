@@ -1,26 +1,26 @@
 import React from 'react';
 import {sendMassegeAC,onMassegeAC} from '../Redux/dialogsReduser';
 import Dialogs from './Dialogs';
-import StoreContext from '../Redux/StoreContext';
+import {connect} from 'react-redux';
 
 
-const DialogsContainer = () => {
-   return <StoreContext.Consumer>
-       {
-           store=>{
-            let sendMassegeClick =()=>{
-                store.dispatch(sendMassegeAC()) 
-            }
-            let wordMassegeClick =(body)=>{
-                store.dispatch(onMassegeAC(body)) 
-            }
-            return (
-                <Dialogs sendMassegeAC={sendMassegeClick} onMassegeAC={wordMassegeClick} massegePage={store.getState().massegePage}/>
-            )
-           }
-       }
-   </StoreContext.Consumer> 
+debugger;
+let mapStateToProps=(state)=>{
+    return{
+        massegePage: state.massegePage
+    }
 }
+let mapDispatchToProps=(dispatch)=>{
+    return{
+        onMassegeAC:()=>{
+            dispatch(sendMassegeAC()) 
+        },
+        sendMassegeAC:(body)=>{
+            dispatch(onMassegeAC(body)) 
+        }
+    }
+}
+const DialogsContainer = connect(mapStateToProps,mapDispatchToProps) (Dialogs);
 
 export default DialogsContainer;
 
