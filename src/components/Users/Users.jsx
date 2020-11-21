@@ -1,24 +1,32 @@
 import React from 'react';
 import cu from './Users.module.css'
+import * as axsios from 'axios'
+import userPhoto from '../img/doomer.jpg'
 
 
 
 const Users = (props) => {
-    if(props.users.length ==0){
-        props.setUser([
-            { id: 1, followed: false, fullName: 'Kostya', status: 'pogoda top', location: { city: 'Minsk', country: 'Belarus' } },
-            { id: 2, followed: true, fullName: 'Kirill', status: '+1', location: { city: 'Minsk', country: 'Belarus' } },
-            { id: 3, followed: false, fullName: 'Alina', status: 'na samom dele pogoda tak sebe', location: { city: 'Minsk', country: 'Belarus' } },
-            { id: 4, followed: true, fullName: 'Vanya', status: 'vozmoshno', location: { city: 'Minsk', country: 'Belarus' } }
-        ])
+    // if(props.users.length ==0){
+    //     props.setUser([
+    //         { id: 1,photoUrl:'https://lh3.googleusercontent.com/proxy/gbQ5SwOUiLOdt2_Fb93mkKI8qnVG3ELgkTn8c68v4cE2I38aWDd6UtLGE4N3d462LtbRKukYsIi1LOEuGGMzZRTCZaK3TNlscmWgPNE', followed: false, fullName: 'Kostya', status: 'pogoda top', location: { city: 'Minsk', country: 'Belarus' } },
+    //         { id: 2,photoUrl:'https://lh3.googleusercontent.com/proxy/gbQ5SwOUiLOdt2_Fb93mkKI8qnVG3ELgkTn8c68v4cE2I38aWDd6UtLGE4N3d462LtbRKukYsIi1LOEuGGMzZRTCZaK3TNlscmWgPNE', followed: true, fullName: 'Kirill', status: '+1', location: { city: 'Minsk', country: 'Belarus' } },
+    //         { id: 3,photoUrl:'https://lh3.googleusercontent.com/proxy/gbQ5SwOUiLOdt2_Fb93mkKI8qnVG3ELgkTn8c68v4cE2I38aWDd6UtLGE4N3d462LtbRKukYsIi1LOEuGGMzZRTCZaK3TNlscmWgPNE', followed: false, fullName: 'Alina', status: 'na samom dele pogoda tak sebe', location: { city: 'Minsk', country: 'Belarus' } },
+    //         { id: 4,photoUrl:'https://lh3.googleusercontent.com/proxy/gbQ5SwOUiLOdt2_Fb93mkKI8qnVG3ELgkTn8c68v4cE2I38aWDd6UtLGE4N3d462LtbRKukYsIi1LOEuGGMzZRTCZaK3TNlscmWgPNE', followed: true, fullName: 'Vanya', status: 'vozmoshno', location: { city: 'Minsk', country: 'Belarus' } }
+    //     ])
+    // }
+    let getUsers=()=>{
+        if(props.users.length ==0){
+            axsios.get('https://social-network.samuraijs.com/api/1.0/users').then(response=>{props.setUser(response.data.items)})
+        }
     }
   return( 
   <div>
+      <button onClick={getUsers}>getUsers</button>
   {
       props.users.map(u => <div key={u.id}>
           <span>
               <div>
-                  <img src={u.photoUrl} className={cu.userPhoto}/>
+                  <img src={u.photos.small != null ? u.photos.small : userPhoto} className={cu.userPhoto}/>
               </div>
               <div>
                   {u.followed
@@ -33,12 +41,12 @@ const Users = (props) => {
           </span>
           <span>
               <span>
-                  <div>{u.fullName}</div>
+                  <div>{u.name}</div>
                   <div>{u.status}</div>
               </span>
               <span>
-                  <div>{u.location.country}</div>
-                  <div>{u.location.city}</div>
+                  <div>{"u.location.country"}</div>
+                  <div>{"u.location.city"}</div>
               </span>
           </span>
       </div>)
