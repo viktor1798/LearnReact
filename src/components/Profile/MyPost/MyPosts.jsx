@@ -7,16 +7,17 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
   //преобразование массива элементов
-  let postElement =props.postDate.map((pd) => <Post message={pd.message} likeCount={pd.likeCount} />);
+  let postElement = props.postDate.map((pd) => <Post message={pd.message} likeCount={pd.likeCount} />);
   let wordNewPost = React.createRef();
-//отправка поста
+  //отправка поста
   let addPost = () => {
     props.addPostAC();
     wordNewPost.current.value = '';
+
   }
   //набор текста сообщений
-  let onPost = () => { 
-    let text=wordNewPost.current.value;
+  let onPost = () => {
+    let text = wordNewPost.current.value;
     props.onPostAC(text);
   }
 
@@ -25,7 +26,7 @@ const MyPosts = (props) => {
       <h4>my post</h4>
       <div>
         <div>
-          <textarea onChange={onPost} ref={wordNewPost}></textarea>
+          <textarea onChange={onPost} ref={wordNewPost} value={props.wordNewPost}></textarea>
         </div>
         <div>
           <button onClick={addPost}>Add post</button>
