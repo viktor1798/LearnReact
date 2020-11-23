@@ -55,16 +55,14 @@ import userPhoto from '../img/doomer.jpg'
 // }
 
 class Users extends React.Component{
-     getUsers=()=>{
-                 if(this.props.users.length ==0){
-                     axsios.get('https://social-network.samuraijs.com/api/1.0/users').then(response=>{props.setUser(response.data.items)})
-                 }
-             }
+    //происходит вмонтирование обектов в данную компоненту для обрисовки 
+    componentDidMount(){
+        axsios.get('https://social-network.samuraijs.com/api/1.0/users').then(response=>{this.props.setUser(response.data.items)})
+    }
 
     render(){
         return( 
                <div>
-                   <button onClick={this.getUsers}>getUsers</button>
                {
                    this.props.users.map(u => <div key={u.id}>
                        <span>

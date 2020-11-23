@@ -7,10 +7,10 @@ const Nav = () => {
   return (
     <nav className={cn.nav}>
       <div className={cn.item}>
-        <NavLink to="/profile" activeClassName={cn.active}>  Profile </NavLink>
+        <NavLink to="/Profile" activeClassName={cn.active}>  Profile </NavLink>
       </div>
       <div className={cn.item}>
-        <NavLink to="/dialogs" activeClassName={cn.active}>  Messeges </NavLink>
+        <NavLink to="/Dialogs" activeClassName={cn.active}>  Messeges </NavLink>
       </div>
       <div className={cn.item}>
         <NavLink to='/News' activeClassName={cn.active}>News</NavLink>
@@ -20,6 +20,9 @@ const Nav = () => {
       </div>
       <div className={cn.item}>
         <NavLink to='/Setting' activeClassName={cn.active}> Setting </NavLink>
+      </div>
+      <div className={cn.item}>
+        <NavLink to='/Users' activeClassName={cn.active}> Users </NavLink>
       </div>
     </nav>
 
