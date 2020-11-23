@@ -1,20 +1,22 @@
 let FOLLOW = 'FOLLOW'
 let UNFOLLOW = 'UNFOLLOW'
-let SET_USER='SET_USER'
+let SET_USER = 'SET_USER'
 let SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 let SET_TOTAL_COUNT_USER = 'SET_TOTAL_COUNT_USER'
+let TOGGLE_FETHCING = 'TOGGLE_FETHCING'
 
 
 let initialState = {
     users: [
-    //     { id: 1, followed: false, fullName: 'Kostya', status: 'pogoda top', location: { city: 'Minsk', country: 'Belarus' } },
-    //     { id: 2, followed: true, fullName: 'Kirill', status: '+1', location: { city: 'Minsk', country: 'Belarus' } },
-    //     { id: 3, followed: false, fullName: 'Alina', status: 'na samom dele pogoda tak sebe', location: { city: 'Minsk', country: 'Belarus' } },
-    //     { id: 4, followed: true, fullName: 'Vanya', status: 'vozmoshno', location: { city: 'Minsk', country: 'Belarus' } }
- ],
-    pageSize:5,
-    totalCountUser:0,
-    currentPage:1
+        //     { id: 1, followed: false, fullName: 'Kostya', status: 'pogoda top', location: { city: 'Minsk', country: 'Belarus' } },
+        //     { id: 2, followed: true, fullName: 'Kirill', status: '+1', location: { city: 'Minsk', country: 'Belarus' } },
+        //     { id: 3, followed: false, fullName: 'Alina', status: 'na samom dele pogoda tak sebe', location: { city: 'Minsk', country: 'Belarus' } },
+        //     { id: 4, followed: true, fullName: 'Vanya', status: 'vozmoshno', location: { city: 'Minsk', country: 'Belarus' } }
+    ],
+    pageSize: 5,
+    totalCountUser: 0,
+    currentPage: 1,
+    isLoadingPage: false
 }
 
 //функция отправки сообщений 
@@ -22,34 +24,37 @@ const usersReduser = (state = initialState, action) => {
 
 
     switch (action.type) {
-        case FOLLOW :
-            return{
-            ...state,
-            users: state.users.map(u=> {
-                if (u.id===action.userId){
-                    return{...u,followed:true}
+        case FOLLOW:
+            return {
+                ...state,
+                users: state.users.map(u => {
+                    if (u.id === action.userId) {
+                        return { ...u, followed: true }
+                    }
+                    return u;
+                })
             }
-            return u;
-        })
+        case UNFOLLOW:
+            return {
+                ...state,
+                users: state.users.map(u => {
+                    if (u.id === action.userId) {
+                        return { ...u, followed: false }
+                    }
+                    return u;
+                })
+            }
+        case SET_USER: {
+            return { ...state, users: action.users }
         }
-        case UNFOLLOW :
-            return{
-            ...state,
-            users: state.users.map(u=> {
-                if (u.id===action.userId){
-                    return{...u,followed:false}
-            }
-            return u;
-        })
-         }
-         case SET_USER:{
-             return{...state,users:[...state.users,...action.users]}
-            }
-        case SET_CURRENT_PAGE:{
-             return{...state,currentPage:action.currentPage}
-        } 
-        case SET_TOTAL_COUNT_USER:{
-            return{...state, totalCountUser : action.totalCountUser }
+        case SET_CURRENT_PAGE: {
+            return { ...state, currentPage: action.currentPage }
+        }
+        case SET_TOTAL_COUNT_USER: {
+            return { ...state, totalCountUser: action.totalCountUser }
+        }
+        case TOGGLE_FETHCING: {
+            return {...state,isLoadingPage:action.isLoadingPage}
         }
         default:
             return state;
@@ -57,10 +62,11 @@ const usersReduser = (state = initialState, action) => {
 }
 
 export const followAC = (userId) => ({ type: FOLLOW, userId });
-export const unfollowAC = (userId) => ({ type: UNFOLLOW,userId});
-export const setUserAC = (users) => ({ type: SET_USER,users});
-export const setCurrentPageAC = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage})
-export const setTotalCountUserAC = (totalCountUser) => ({type:SET_TOTAL_COUNT_USER, totalCountUser})
+export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
+export const setUserAC = (users) => ({ type: SET_USER, users });
+export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
+export const setTotalCountUserAC = (totalCountUser) => ({ type: SET_TOTAL_COUNT_USER, totalCountUser })
+export const toggleFethcingAC = (isLoadingPage) => ({ type: TOGGLE_FETHCING , isLoadingPage })
 
 
 
