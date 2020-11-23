@@ -61,12 +61,12 @@ const usersReduser = (state = initialState, action) => {
     }
 }
 
-export const followAC = (userId) => ({ type: FOLLOW, userId });
-export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
-export const setUserAC = (users) => ({ type: SET_USER, users });
-export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
-export const setTotalCountUserAC = (totalCountUser) => ({ type: SET_TOTAL_COUNT_USER, totalCountUser })
-export const toggleFethcingAC = (isLoadingPage) => ({ type: TOGGLE_FETHCING , isLoadingPage })
+export const follow = (userId) => ({ type: FOLLOW, userId });
+export const unfollow = (userId) => ({ type: UNFOLLOW, userId });
+export const setUser = (users) => ({ type: SET_USER, users });
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
+export const setTotalCountUser = (totalCountUser) => ({ type: SET_TOTAL_COUNT_USER, totalCountUser })
+export const toggleFethcing = (isLoadingPage) => ({ type: TOGGLE_FETHCING , isLoadingPage })
 
 
 

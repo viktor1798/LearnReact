@@ -1,4 +1,4 @@
-import { followAC, setUserAC, unfollowAC, setCurrentPageAC, setTotalCountUserAC, toggleFethcingAC } from '../Redux/usersReduser';
+import { follow, setUser, unfollow, setCurrentPage, setTotalCountUser, toggleFethcing } from '../Redux/usersReduser';
 import React from 'react'
 import Users from './Users'
 import { connect } from 'react-redux'
@@ -60,7 +60,7 @@ const mapStateToProps = (state) => {
     }
 
 }
-
+/* 
 const mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
@@ -83,8 +83,16 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
+ */
 
 
 
-
-export default  connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default  connect(mapStateToProps, 
+    {
+        follow,
+        unfollow,
+        setUser,
+        setCurrentPage,
+        setTotalCountUser,
+        toggleFethcing
+    })(UsersContainer);
