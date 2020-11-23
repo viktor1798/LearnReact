@@ -57,12 +57,40 @@ import userPhoto from '../img/doomer.jpg'
 class Users extends React.Component{
     //происходит вмонтирование обектов в данную компоненту для обрисовки 
     componentDidMount(){
-        axsios.get('https://social-network.samuraijs.com/api/1.0/users').then(response=>{this.props.setUser(response.data.items)})
+        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        .then(response=>
+            {
+                this.props.setUser(response.data.items);
+                this.props.setTotalCountUser(response.data.totalCount);
+            })
     }
 
+    onPageChenged =(numberPage)=>{
+        this.props.setCurrentPage(numberPage);
+        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`)
+        .then(response=>
+            {
+                this.props.setUser(response.data.items);
+            })
+    }
+
+    
     render(){
-        return( 
+        let pagesCount = Math.ceil (this.props.totalCountUser/this.props.pageSize)
+        let pages = [];
+        for(let i=1 ; i<=60;i++){
+            pages.push(i);
+        }
+
+
+        return(
                <div>
+                   <div>
+                   { pages.map( p => {
+                    return <span className={this.props.currentPage ===  p && cu.selectedPage }
+                    onClick={(e) => { this.onPageChenged(p); }}>{p}</span>
+                })}
+                   </div>
                {
                    this.props.users.map(u => <div key={u.id}>
                        <span>
