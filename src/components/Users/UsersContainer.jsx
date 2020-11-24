@@ -8,6 +8,7 @@ import Preloader from '../common/Preloader/Preloader'
 
 
 
+
 class UsersContainer extends React.Component {
     //происходит вмонтирование обектов в данную компоненту для обрисовки 
     componentDidMount() {
@@ -87,12 +88,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default  connect(mapStateToProps, 
-    {
-        follow,
-        unfollow,
-        setUser,
-        setCurrentPage,
-        setTotalCountUser,
-        toggleFethcing
-    })(UsersContainer);
+export default  connect(mapStateToProps, {follow,unfollow,setUser,setCurrentPage,setTotalCountUser,toggleFethcing})(UsersContainer);

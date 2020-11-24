@@ -1,5 +1,7 @@
 let ADD_POST = 'ADD-POST'
 let WORD_TEXT = 'WORD-TEXT'
+let SET_PROFILE_USER = 'SET_PROFILE_USER'
+
 
 let initialState = {
     postDate: [
@@ -7,7 +9,8 @@ let initialState = {
         { id: 2, message: 'I tebye Hello', likeCount: '7' }
     ]
     ,
-    newPostText: ''
+    newPostText: '',
+    profile:null
 }
 
 // функция добавление постов
@@ -43,6 +46,9 @@ const profileReduser = (state = initialState, action) => {
                 ...state,
                 newPostText : action.addNewWord
             }
+        case SET_PROFILE_USER:{
+            return{...state, profile:action.profile}
+        }
         default:
             return state;
     }
@@ -53,6 +59,8 @@ const profileReduser = (state = initialState, action) => {
 
 export const addPostAC = () => ({ type: ADD_POST });
 export const onPostAC = (text) => ({ type: WORD_TEXT, addNewWord: text })
+export const setProfileUser = (profile) => ({ type: SET_PROFILE_USER, profile })
+
 
 export default profileReduser;
 
