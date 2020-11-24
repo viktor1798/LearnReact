@@ -14,6 +14,10 @@ const ProfileInfo = (props) => {
       <div className={cpi.descriptionblock}>
         <img src={props.profile.photos.small} />
         ava + discription
+        <div>
+          {props.profile.fullName}
+        </div>
+      
         </div>
     </div>
   );

@@ -25,12 +25,12 @@ const App = () => {
       <Nav />
       <div className="app-wrapper-content">
         {/* path- делает нужный URL, render указывает на страницу по которой идет данный URL */}
-        <Route path="/Profile/" render={() => <ProfileContainer />} />
-        <Route path="/Dialogs" render={() => <DialogsContainer />} />
-        <Route path='/Music' render={() => <Music />} />
-        <Route path='/Setting' render={() => <Setting />} />
-        <Route path='/News' render={() => <News />} />
-        <Route path="/Users" render={() => <UsersCountainer />} />
+        <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+        <Route path="/dialogs" render={() => <DialogsContainer />} />
+        <Route path='/music' render={() => <Music />} />
+        <Route path='/setting' render={() => <Setting />} />
+        <Route path='/news' render={() => <News />} />
+        <Route path="/users" render={() => <UsersCountainer />} />
       </div>
     </div>
 
