@@ -31,18 +31,18 @@ class UsersContainer extends React.Component {
             })
     }
 
-    render(){
-        
+    render() {
+
         return <>
-        {this.props.isLoadingPage ? <Preloader/>:null}
-        <Users totalCountUser={this.props.totalCountUser}
-        pageSize={this.props.pageSize}
-        currentPage={this.props.currentPage}
-        users={this.props.users}
-        onPageChenged ={this.onPageChenged}
-        follow = {this.props.follow}
-        unfollow = {this.props.unfollow}
-        />
+            {this.props.isLoadingPage ? <Preloader /> : null}
+            <Users totalCountUser={this.props.totalCountUser}
+                pageSize={this.props.pageSize}
+                currentPage={this.props.currentPage}
+                users={this.props.users}
+                onPageChenged={this.onPageChenged}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+            />
         </>
     }
 }
@@ -88,4 +88,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default  connect(mapStateToProps, {follow,unfollow,setUser,setCurrentPage,setTotalCountUser,toggleFethcing})(UsersContainer);
+export default connect(mapStateToProps, { follow, unfollow, setUser, setCurrentPage, setTotalCountUser, toggleFethcing })(UsersContainer);

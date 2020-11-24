@@ -54,7 +54,7 @@ const usersReduser = (state = initialState, action) => {
             return { ...state, totalCountUser: action.totalCountUser }
         }
         case TOGGLE_FETHCING: {
-            return {...state,isLoadingPage:action.isLoadingPage}
+            return { ...state, isLoadingPage: action.isLoadingPage }
         }
         default:
             return state;
@@ -66,7 +66,7 @@ export const unfollow = (userId) => ({ type: UNFOLLOW, userId });
 export const setUser = (users) => ({ type: SET_USER, users });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setTotalCountUser = (totalCountUser) => ({ type: SET_TOTAL_COUNT_USER, totalCountUser })
-export const toggleFethcing = (isLoadingPage) => ({ type: TOGGLE_FETHCING , isLoadingPage })
+export const toggleFethcing = (isLoadingPage) => ({ type: TOGGLE_FETHCING, isLoadingPage })
 
 
 

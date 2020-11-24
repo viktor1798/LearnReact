@@ -8,7 +8,7 @@ const Profile = (props) => {
 
     return (
         <div className={cpr.content}>
-            <ProfileInfo props={props.profile}/>
+            <ProfileInfo profile={props.profile} />
             <MyPostsContainer />
         </div>
     );

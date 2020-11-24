@@ -10,7 +10,7 @@ let initialState = {
     ]
     ,
     newPostText: '',
-    profile:null
+    profile: null
 }
 
 // функция добавление постов
@@ -29,25 +29,25 @@ const profileReduser = (state = initialState, action) => {
     //     return state;
     // } 
     switch (action.type) {
-        case ADD_POST: 
+        case ADD_POST:
             let newPost = {
                 id: 3,
                 message: state.newPostText,
                 likeCount: 1
             };
-            return{
+            return {
                 ...state,
-                postDate : [...state.postDate, newPost],
-                newPostText : ''
+                postDate: [...state.postDate, newPost],
+                newPostText: ''
             }
-        
+
         case WORD_TEXT:
-            return{
+            return {
                 ...state,
-                newPostText : action.addNewWord
+                newPostText: action.addNewWord
             }
-        case SET_PROFILE_USER:{
-            return{...state, profile:action.profile}
+        case SET_PROFILE_USER: {
+            return { ...state, profile: action.profile }
         }
         default:
             return state;

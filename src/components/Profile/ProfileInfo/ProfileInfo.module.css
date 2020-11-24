@@ -5,3 +5,8 @@
 img{
     width: 700px;
 }
+
+.descriptionblock  img{
+    height: 100px;
+    width: 100px;
+}
