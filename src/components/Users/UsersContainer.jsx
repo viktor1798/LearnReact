@@ -13,7 +13,7 @@ class UsersContainer extends React.Component {
     //происходит вмонтирование обектов в данную компоненту для обрисовки 
     componentDidMount() {
         this.props.toggleFethcing(true)
-        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,{withCredentials:true})
             .then(response => {
                 this.props.toggleFethcing(false)
                 this.props.setUser(response.data.items);
@@ -24,7 +24,7 @@ class UsersContainer extends React.Component {
     onPageChenged = (numberPage) => {
         this.props.setCurrentPage(numberPage);
         this.props.toggleFethcing(true)
-        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`)
+        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`,{withCredentials:true})
             .then(response => {
                 this.props.toggleFethcing(false)
                 this.props.setUser(response.data.items);
