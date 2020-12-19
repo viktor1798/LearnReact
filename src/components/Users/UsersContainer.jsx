@@ -2,8 +2,8 @@ import { follow, setUser, unfollow, setCurrentPage, setTotalCountUser, toggleFet
 import React from 'react'
 import Users from './Users'
 import { connect } from 'react-redux'
-import * as axsios from 'axios'
 import Preloader from '../common/Preloader/Preloader'
+import {usersAPI} from '../api/api'
 
 
 
@@ -13,21 +13,20 @@ class UsersContainer extends React.Component {
     //происходит вмонтирование обектов в данную компоненту для обрисовки 
     componentDidMount() {
         this.props.toggleFethcing(true)
-        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,{withCredentials:true})
-            .then(response => {
+        debugger;
+        usersAPI.getUsers(this.props.currentPage,this.props.pageSize).then(data => {
                 this.props.toggleFethcing(false)
-                this.props.setUser(response.data.items);
-                this.props.setTotalCountUser(response.data.totalCount);
+                this.props.setUser(data.items);
+                this.props.setTotalCountUser(data.totalCount);
             })
     }
 
     onPageChenged = (numberPage) => {
         this.props.setCurrentPage(numberPage);
         this.props.toggleFethcing(true)
-        axsios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`,{withCredentials:true})
-            .then(response => {
+        usersAPI.getUsers(numberPage,this.props.pageSize).then(data => {
                 this.props.toggleFethcing(false)
-                this.props.setUser(response.data.items);
+                this.props.setUser(data.items);
             })
     }
 

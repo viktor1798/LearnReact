@@ -6,11 +6,11 @@ import Header from './Header';
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
-        axsios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials:true})
+        axsios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true })
             .then(response => {
-                if(response.data.resultCode === 0){
-                    let {id,email,login} = response.data.data
-                    this.props.setAuthUserData(id,email,login) 
+                if (response.data.resultCode === 0) {
+                    let { id, email, login } = response.data.data
+                    this.props.setAuthUserData(id, email, login)
                 }
             })
     }
@@ -18,16 +18,16 @@ class HeaderContainer extends React.Component {
 
     render() {
         return (
-            <Header {...this.props}/>
+            <Header {...this.props} />
         )
     }
 
 }
 
 
-let mapStateToProps=(state)=>({
+let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     isAuth: state.auth.login,
-    
+
 })
-export default connect (mapStateToProps, {setAuthUserData}) (HeaderContainer);
+export default connect(mapStateToProps, { setAuthUserData })(HeaderContainer);
