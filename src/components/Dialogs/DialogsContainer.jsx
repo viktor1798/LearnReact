@@ -4,7 +4,7 @@ import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
 
 
-debugger;
+
 let mapStateToProps=(state)=>{
     return{
         massegePage: state.massegePage

@@ -4,7 +4,7 @@ let SET_USER = 'SET_USER'
 let SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 let SET_TOTAL_COUNT_USER = 'SET_TOTAL_COUNT_USER'
 let TOGGLE_FETHCING = 'TOGGLE_FETHCING'
-let FOLLOWING_IN_PROGRESS = 'FOLLOWING_IN_PROGRESS'
+let TOGGLE_FOLLOWING_IN_PROGRESS = 'FOLLOWING_IN_PROGRESS'
 
 let initialState = {
     users: [
@@ -16,8 +16,8 @@ let initialState = {
     pageSize: 5,
     totalCountUser: 0,
     currentPage: 1,
-    isLoadingPage: false,
-    followingInProgress : false
+    isLoadingPage: true,
+    followingInProgress : []
 }
 
 //функция отправки сообщений 
@@ -57,8 +57,8 @@ const usersReduser = (state = initialState, action) => {
         case TOGGLE_FETHCING: {
             return { ...state, isLoadingPage: action.isLoadingPage }
         }
-        case FOLLOWING_IN_PROGRESS: {
-            return { ...state, followingInProgress: action.isLoadingPage }
+        case TOGGLE_FOLLOWING_IN_PROGRESS: {
+            return { ...state, followingInProgress: action.isLoadingPage? [...state.followingInProgress, action.userId]: state.followingInProgress.filter(id => id !=action.userId)}
         }
         default:
             return state;
@@ -71,7 +71,7 @@ export const setUser = (users) => ({ type: SET_USER, users });
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setTotalCountUser = (totalCountUser) => ({ type: SET_TOTAL_COUNT_USER, totalCountUser })
 export const toggleFethcing = (isLoadingPage) => ({ type: TOGGLE_FETHCING, isLoadingPage })
-export const toggleFollowingInProgress = (isLoadingPage) => ({ type: FOLLOWING_IN_PROGRESS, isLoadingPage })
+export const toggleFollowingInProgress = (isLoadingPage, userId) => ({ type: TOGGLE_FOLLOWING_IN_PROGRESS, isLoadingPage, userId })
 
 
 export default usersReduser;

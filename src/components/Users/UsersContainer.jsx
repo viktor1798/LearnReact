@@ -13,7 +13,7 @@ class UsersContainer extends React.Component {
     //происходит вмонтирование обектов в данную компоненту для обрисовки 
     componentDidMount() {
         this.props.toggleFethcing(true)
-        debugger;
+        
         usersAPI.getUsers(this.props.currentPage,this.props.pageSize).then(data => {
                 this.props.toggleFethcing(false)
                 this.props.setUser(data.items);
@@ -41,6 +41,7 @@ class UsersContainer extends React.Component {
                 onPageChenged={this.onPageChenged}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
+                toggleFollowingInProgress={this.props.toggleFollowingInProgress}
                 followingInProgress={this.props.followingInProgress}
             />
         </>
