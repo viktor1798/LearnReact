@@ -1,3 +1,5 @@
+import { usersAPI}  from '../api/api'
+
 let ADD_POST = 'ADD-POST'
 let WORD_TEXT = 'WORD-TEXT'
 let SET_PROFILE_USER = 'SET_PROFILE_USER'
@@ -61,6 +63,11 @@ export const addPostAC = () => ({ type: ADD_POST });
 export const onPostAC = (text) => ({ type: WORD_TEXT, addNewWord: text })
 export const setProfileUser = (profile) => ({ type: SET_PROFILE_USER, profile })
 
+export const getProfileUser = (userId) => (dispatch) => {
+    usersAPI.getProfile(userId).then(response => {
+        dispatch(setProfileUser(response.data));
+    });
+}
 
 export default profileReduser;
 
