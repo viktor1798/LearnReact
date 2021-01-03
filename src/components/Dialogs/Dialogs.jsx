@@ -2,6 +2,7 @@ import React from 'react';
 import cd from './Dialogs.module.css'
 import DialogsItem from './Dialog/DialogsItem';
 import MassegeItem from './Dialog/Massege/MassegeItem';
+import {Redirect} from "react-router-dom";
 
 
 
@@ -22,6 +23,7 @@ const Dialogs = (props) => {
         let body =event.target.value;
         props.onMassegeAC(body)
     }
+    if (!props.isAuth) return <Redirect to='/login'/>
     return (
         <div className={cd.dialog}>
             <div className={cd.dialog_item}>
