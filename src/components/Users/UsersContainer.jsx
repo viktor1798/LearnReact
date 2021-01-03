@@ -1,9 +1,9 @@
-import { follow, setUser, unfollow, setCurrentPage, setTotalCountUser, toggleFethcing,toggleFollowingInProgress } from '../Redux/usersReduser';
+import { follow, unfollow, setCurrentPage,getUsersThunkCreator,toggleFollowingInProgress } from '../Redux/usersReduser';
 import React from 'react'
 import Users from './Users'
 import { connect } from 'react-redux'
 import Preloader from '../common/Preloader/Preloader'
-import {usersAPI} from '../api/api'
+
 
 
 
@@ -12,22 +12,26 @@ import {usersAPI} from '../api/api'
 class UsersContainer extends React.Component {
     //происходит вмонтирование обектов в данную компоненту для обрисовки 
     componentDidMount() {
-        this.props.toggleFethcing(true)
+       /*  this.props.toggleFethcing(true)
         
         usersAPI.getUsers(this.props.currentPage,this.props.pageSize).then(data => {
                 this.props.toggleFethcing(false)
                 this.props.setUser(data.items);
                 this.props.setTotalCountUser(data.totalCount);
-            })
+            }) */
+        this.props.getUsers(this.props.currentPage,this.props.pageSize);
     }
 
     onPageChenged = (numberPage) => {
+
+        this.props.getUsers(numberPage,this.props.pageSize)
+        /* 
         this.props.setCurrentPage(numberPage);
         this.props.toggleFethcing(true)
         usersAPI.getUsers(numberPage,this.props.pageSize).then(data => {
                 this.props.toggleFethcing(false)
                 this.props.setUser(data.items);
-            })
+            }) */
     }
 
     render() {
@@ -90,4 +94,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, { follow, unfollow, setUser, setCurrentPage, setTotalCountUser, toggleFethcing,toggleFollowingInProgress })(UsersContainer);
+export default connect(mapStateToProps, { follow,setCurrentPage, unfollow, getUsers :getUsersThunkCreator,toggleFollowingInProgress })(UsersContainer);
