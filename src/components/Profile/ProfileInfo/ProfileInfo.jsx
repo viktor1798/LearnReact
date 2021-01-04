@@ -1,6 +1,8 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import cpi from './ProfileInfo.module.css';
+import ProfileStatus from './ProfileStatus';
+
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -8,12 +10,9 @@ const ProfileInfo = (props) => {
   }
   return (
     <div>
-      <div>
-        <img src="https://s1.1zoom.ru/big0/235/Poppies_Summer_Grasslands_Trees_562184_1270x1024.jpg"></img>
-      </div>
       <div className={cpi.descriptionblock}>
         <img src={props.profile.photos.small} />
-        ava + discription
+        <ProfileStatus status={"Memento mori..."}/>
         <div>
           {props.profile.fullName}
         </div>
