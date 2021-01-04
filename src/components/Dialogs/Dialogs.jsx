@@ -2,7 +2,7 @@ import React from 'react';
 import cd from './Dialogs.module.css'
 import DialogsItem from './Dialog/DialogsItem';
 import MassegeItem from './Dialog/Massege/MassegeItem';
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -15,15 +15,15 @@ const Dialogs = (props) => {
     let massegeElement = state.massegeDate.map((md) => <MassegeItem massege={md.massege} />)
     //отправка сообщений и дальнешее передача действий в файл state.js в метод dispatch()
     let newMassegeText = state.newMassegeText;
-    let sendMassegeClick =()=>{
+    let sendMassegeClick = () => {
         props.sendMassegeAC();
     }
     //набор символов в textarae и дальнешее передача действий в файл state.js в метод dispatch()
-    let wordMassegeClick =(event)=>{
-        let body =event.target.value;
+    let wordMassegeClick = (event) => {
+        let body = event.target.value;
         props.onMassegeAC(body)
     }
-    if (!props.isAuth) return <Redirect to='/login'/>
+   
     return (
         <div className={cd.dialog}>
             <div className={cd.dialog_item}>
@@ -39,14 +39,14 @@ const Dialogs = (props) => {
 
                     <div>
                         {/* поле ввода */}
-                        <textarea value={newMassegeText} 
-                        placeholder="Enter new message" 
-                        onChange={wordMassegeClick}>
+                        <textarea value={newMassegeText}
+                            placeholder="Enter new message"
+                            onChange={wordMassegeClick}>
                         </textarea>
                     </div>
                     <div>
                         {/* кнопка отправки */}
-                        <button onClick = {sendMassegeClick}>Send Message</button>
+                        <button onClick={sendMassegeClick}>Send Message</button>
                     </div>
                 </div>
             </div>
