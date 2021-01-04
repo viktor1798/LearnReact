@@ -3,6 +3,8 @@ import React from 'react'
 import Users from './Users'
 import { connect } from 'react-redux'
 import Preloader from '../common/Preloader/Preloader'
+import withAuthRedirect from '../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 
 
@@ -94,4 +96,9 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, { follow,setCurrentPage, unfollow, getUsers :getUsersThunkCreator,toggleFollowingInProgress })(UsersContainer);
+
+
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps,{follow, unfollow, setCurrentPage, toggleFollowingInProgress, getUsers :getUsersThunkCreator })
+)(UsersContainer)
