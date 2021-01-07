@@ -54,7 +54,7 @@ const profileReduser = (state = initialState, action) => {
             return { ...state, profile: action.profile }
         }
         case SET_STATUS: {
-            return { ...state, profile: action.status }
+            return { ...state, status: action.status }
         }
         default:
             return state;
