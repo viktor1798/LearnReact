@@ -14,7 +14,7 @@ let initialState = {
     ,
     newPostText: '',
     profile: null,
-    status: ""
+    status: ''
 }
 
 // функция добавление постов
