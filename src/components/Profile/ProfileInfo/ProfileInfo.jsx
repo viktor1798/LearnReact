@@ -8,11 +8,12 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />
   }
+  debugger
   return (
     <div>
       <div className={cpi.descriptionblock}>
         <img src={props.profile.photos.small} />
-        <ProfileStatus status={"Memento mori..."}/>
+        <ProfileStatus status={props.getStatus} updateStatus={props.updateStatus}/>
         <div>
           {props.profile.fullName}
         </div>
