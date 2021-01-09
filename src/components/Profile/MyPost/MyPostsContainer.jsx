@@ -1,6 +1,6 @@
 import React from 'react';
 //cp == classProfile. Подключение к модулю css
-import {onPostAC, addPostAC} from '../../Redux/profileReduser';
+import { addPostAC} from '../../Redux/profileReduser';
 import MyPosts from './MyPosts';
 import { connect } from 'react-redux';
 
@@ -13,12 +13,8 @@ let mapStateToProps=(state)=>{
 }
 let mapDispatchToProps=(dispatch)=>{
   return{
-    onPostAC:(text)=>{
-      let action = onPostAC(text);
-      dispatch(action);
-    },
-    addPostAC:()=>{
-      dispatch(addPostAC());
+    addPostAC:(addNewPost)=>{
+      dispatch(addPostAC(addNewPost));
     }
   }
 }

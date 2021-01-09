@@ -1,5 +1,4 @@
 let SEND_MASSEGE = 'SEND-MASSEGE'
-let WORD_TEXT_MASSEGE = 'WORD-TEXT-MASSEGE'
 
 let initialState = {
     
@@ -16,8 +15,7 @@ let initialState = {
         { id: 1, massege: 'Hi' },
         { id: 2, massege: 'How are you?' },
         { id: 3, massege: 'Good nigth' }
-    ],
-    newMassegeText: ''
+    ]
 }
 
 //функция отправки сообщений 
@@ -37,17 +35,10 @@ const dialogsReduser =(state=initialState, action)=>{
    
     switch (action.type) {
         
-    case WORD_TEXT_MASSEGE:{
-        return {
-            ...state,
-            newMassegeText: action.addWordMassege
-        }
-    }
         case SEND_MASSEGE:{
-            let body =state.newMassegeText;
+            let body =action.newMassegeText;
             return {
-            ...state,
-            newMassegeText:'', 
+            ...state, 
             massegeDate:[...state.massegeDate,{id: 4,massege: body}]};
             
         }
@@ -58,8 +49,7 @@ const dialogsReduser =(state=initialState, action)=>{
 }
 // функции для принятия данных и последующих операций в методе dispatch()
 
-export const sendMassegeAC = () => ({ type: SEND_MASSEGE })
-export const  onMassegeAC = (body) => ({ type: WORD_TEXT_MASSEGE, addWordMassege: body })
+export const sendMassegeAC = (newMessage) => ({ type: SEND_MASSEGE ,newMassegeText: newMessage})
 
 
 export default dialogsReduser;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {sendMassegeAC,onMassegeAC} from '../Redux/dialogsReduser';
+import {sendMassegeAC} from '../Redux/dialogsReduser';
 import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
 import withAuthRedirect from '../hoc/withAuthRedirect';
@@ -15,12 +15,10 @@ let mapStateToProps=(state)=>{
 }
 let mapDispatchToProps=(dispatch)=>{
     return{
-        sendMassegeAC:()=>{
-            dispatch(sendMassegeAC()) 
+        sendMassegeAC:(newMessage)=>{
+            dispatch(sendMassegeAC(newMessage)) 
         },
-        onMassegeAC:(body)=>{
-            dispatch(onMassegeAC(body)) 
-        }
+       
     }
 }
 

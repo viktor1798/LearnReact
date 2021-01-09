@@ -3,7 +3,7 @@ import React from 'react';
 
 const LoginForm = (props) => {
     return (
-        <form>
+        <form >
             <div>
                 <Field placeholder={"Login"} name={"login"} component={"input"} />
             </div>
