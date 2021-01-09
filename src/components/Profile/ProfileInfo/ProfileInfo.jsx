@@ -13,7 +13,7 @@ const ProfileInfo = (props) => {
     <div>
       <div className={cpi.descriptionblock}>
         <img src={props.profile.photos.small} />
-        <ProfileStatus status={props.getStatus} updateStatus={props.updateStatus}/>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         <div>
           {props.profile.fullName}
         </div>
