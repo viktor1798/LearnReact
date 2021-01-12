@@ -37,7 +37,7 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status
 })
-debugger
+
 /* let WithDataContainerComponent = withRouter(AuthRedirectComponent);
 
 
@@ -47,5 +47,5 @@ export default connect(mapStateToProps, { getProfileUser })(WithDataContainerCom
 export default compose(
     connect(mapStateToProps, { getProfileUser, getStatus,updateStatus }),
     withRouter,
-    withAuthRedirect
+    //withAuthRedirect
 )(ProfileConteiner);
