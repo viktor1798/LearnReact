@@ -76,11 +76,12 @@ export const toggleFethcing = (isLoadingPage) => ({ type: TOGGLE_FETHCING, isLoa
 export const toggleFollowingInProgress = (isLoadingPage, userId) => ({ type: TOGGLE_FOLLOWING_IN_PROGRESS, isLoadingPage, userId })
 
 
-export const getUsersThunkCreator = (currentPage,pageSize)=>{
+export const getUsersThunkCreator = (page,pageSize)=>{
     return (dispatch)=>{
         dispatch(toggleFethcing(true));
+        dispatch(setCurrentPage(page))
         
-        usersAPI.getUsers(currentPage,pageSize).then(data => {
+        usersAPI.getUsers(page,pageSize).then(data => {
                 dispatch(toggleFethcing(false))
                 dispatch(setUser(data.items));
                 dispatch(setTotalCountUser(data.totalCount));

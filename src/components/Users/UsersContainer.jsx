@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Preloader from '../common/Preloader/Preloader'
 import withAuthRedirect from '../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import { getCurrentPage, getFollowingInProgress, getIsLoadingPage, getPageSize, getTotalCountUser, getUsers } from '../Redux/usersSelectors';
 
 
 
@@ -21,12 +22,12 @@ class UsersContainer extends React.Component {
                 this.props.setUser(data.items);
                 this.props.setTotalCountUser(data.totalCount);
             }) */
-        this.props.getUsers(this.props.currentPage,this.props.pageSize);
+        this.props.requestUsers(this.props.currentPage,this.props.pageSize);
     }
 
     onPageChenged = (numberPage) => {
 
-        this.props.getUsers(numberPage,this.props.pageSize)
+        this.props.requestUsers(numberPage,this.props.pageSize)
         /* 
         this.props.setCurrentPage(numberPage);
         this.props.toggleFethcing(true)
@@ -60,12 +61,12 @@ class UsersContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalCountUser: state.usersPage.totalCountUser,
-        currentPage: state.usersPage.currentPage,
-        isLoadingPage: state.usersPage.isLoadingPage,
-        followingInProgress:state.usersPage.followingInProgress,
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalCountUser: getTotalCountUser(state),
+        currentPage: getCurrentPage(state),
+        isLoadingPage: getIsLoadingPage(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 
 }
@@ -100,5 +101,5 @@ const mapDispatchToProps = (dispatch) => {
 
 export default compose(
     withAuthRedirect,
-    connect(mapStateToProps,{follow, unfollow, setCurrentPage, toggleFollowingInProgress, getUsers :getUsersThunkCreator })
+    connect(mapStateToProps,{follow, unfollow, setCurrentPage, toggleFollowingInProgress, requestUsers :getUsersThunkCreator })
 )(UsersContainer)
