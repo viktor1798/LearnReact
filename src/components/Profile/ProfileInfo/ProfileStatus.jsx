@@ -1,6 +1,7 @@
-import React from 'react';
+/* import React from 'react';
 import s from './ProfileInfo.module.css';
 
+пример классовой компоненты (для понимания)
 
 class ProfileStatus extends React.Component {
     state = {
@@ -46,4 +47,4 @@ class ProfileStatus extends React.Component {
     }
 }
 
-export default ProfileStatus;
+export default ProfileStatus; */
